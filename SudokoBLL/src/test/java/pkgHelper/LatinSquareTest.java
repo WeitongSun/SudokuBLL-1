@@ -100,4 +100,50 @@ public class LatinSquareTest {
 		assertEquals(Arrays.toString(row1), Arrays.toString(testSquare.getRow(1)));
 		assertEquals(Arrays.toString(row2), Arrays.toString(testSquare.getRow(2)));
 	}
+
+	@Test
+	public void hasAllValues_test() {
+		int[] arr1 = new int[] { 1, 2, 3, 4 };
+		int[] arr2 = new int[] { 2, 4, 1, 3 };
+		boolean bExpected = true;
+
+		assertEquals(LatinSquare.hasAllValues(arr1, arr2), bExpected);
+	}
+
+	@Test
+	public void isLatinSquare_test1() {
+		int[][] puzzle = new int[][] { { 1, 2, 3, 4, 5 }, { 2, 3, 5, 1, 4 }, { 3, 5, 4, 2, 1 }, { 4, 1, 2, 5, 3 },
+				{ 5, 4, 1, 3, 2 } };
+		LatinSquare testSquare = new LatinSquare(puzzle);
+		boolean bExpected = true;
+		assertEquals(testSquare.isLatinSquare(), bExpected);
+	}
+
+	@Test
+	public void isLatinSquare_test2() {
+		int[][] puzzle = new int[][] { { 1, 2, 3, 4, 5 }, { 3, 2, 5, 1, 4 }, { 3, 5, 4, 2, 1 }, { 4, 1, 2, 5, 3 },
+				{ 5, 4, 1, 3, 2 } };
+		LatinSquare testSquare = new LatinSquare(puzzle);
+		boolean bExpected = false;
+		assertEquals(testSquare.isLatinSquare(), bExpected);
+	}
+
+	@Test
+	public void containsZeros_test1() {
+		int[][] puzzle = new int[][] { { 1, 0, 3, 4, 5 }, { 3, 2, 5, 1, 4 }, { 3, 5, 4, 2, 1 }, { 4, 1, 2, 5, 3 },
+				{ 5, 4, 1, 3, 2 } };
+		LatinSquare testSquare = new LatinSquare(puzzle);
+		boolean bExpected = true;
+		assertEquals(testSquare.containsZeros(), bExpected);
+	}
+
+	@Test
+	public void containsZeros_test2() {
+		int[][] puzzle = new int[][] { { 1, 2, 3, 4, 5 }, { 3, 2, 5, 1, 4 }, { 3, 5, 4, 2, 1 }, { 4, 1, 2, 5, 3 },
+				{ 5, 4, 1, 3, 2 } };
+		LatinSquare testSquare = new LatinSquare(puzzle);
+		boolean bExpected = false;
+		assertEquals(testSquare.containsZeros(), bExpected);
+	}
+
 }
